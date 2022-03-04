@@ -1,0 +1,12 @@
+name: Pull request workflow
+
+on: pull_request
+
+jobs:
+
+  job1:
+    name: Mensaje de confirmacion
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimiendo mensaje
+        run: echo "Si ves esto es que todo ha ido perfecto"

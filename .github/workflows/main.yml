@@ -1,0 +1,16 @@
+name: Main workflow
+
+on: workflow_dispatch
+
+jobs:
+
+  Day_of_week:
+    name: Day of week
+    runs-on: ubuntu-latest
+    steps:
+      - name: Creating a variable
+        env:
+          V: Viernes
+      - name: Printing variable
+        run: echo "Hoy es $V"
+        

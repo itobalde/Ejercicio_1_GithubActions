@@ -14,5 +14,5 @@ jobs:
         env:
           DAY: Viernes
       - name: Printing variable
-        run: echo "Hoy es ${{ steps.first_step.env.DAY }}"
+        run: echo "Hoy es ${{ env.DAY }}"
         

@@ -9,9 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Creating a variable
+        id: first_step
         run: echo "La variable ha sido creada y definida"      
         env:
-          V: Viernes
+          DAY: Viernes
       - name: Printing variable
-        run: echo "Hoy es $V"
+        run: echo "Hoy es ${{ steps.first_step.env.DAY }}"
         

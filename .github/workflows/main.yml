@@ -16,6 +16,7 @@ jobs:
         run: echo "Hoy es ${{ env.DAY }}"
   
   printing_Year:
+    name: Año actual
     needs: variables
     runs-on: ubuntu-latest
     steps: 
@@ -24,6 +25,8 @@ jobs:
              echo "NEED=true" >> "$GITHUB_ENV"
    
   condicional_job:
+    name: Test condicional
+    needs: printing_Year
     runs-on: ubuntu-latest
     steps: 
       - name: Comprobando el funcionamiento del job anterior

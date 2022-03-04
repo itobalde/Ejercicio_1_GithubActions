@@ -4,21 +4,32 @@ on: [push,workflow_dispatch]
 
 jobs:
 
-  Variables:
-    name: Day of week
+  variables:
+    name: Dia de la semana
     runs-on: ubuntu-latest
     outputs:
       YEAR: "2022"
     steps:
-      - name: Creating a variable
+      - name: Creando la variable
         run: echo "DAY=Viernes" >> $GITHUB_ENV
-      - name: Printing variable
+      - name: Imprimiendo la variable
         run: echo "Hoy es ${{ env.DAY }}"
   
-  Day_of_month:
-    needs: Variables
+  printing_Year:
+    needs: variables
     runs-on: ubuntu-latest
     steps: 
-      - run: echo "Estamos en el año ${{ needs.Variables.outputs.YEAR }}"
+      - name: Imprimiendo el año actual
+        run: echo "Estamos en el año ${{ needs.Variables.outputs.YEAR }}"
+             echo "NEED=true" >> "$GITHUB_ENV"
+   
+  condicional_job:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Comprobando el funcionamiento del job anterior
+        if: env.NEED != 'true'
+        run: echo "Ha ido todo bien en el anterior job"
+    
+    
     
         

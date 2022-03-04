@@ -9,10 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Creating a variable
-        id: first_step
-        run: echo "La variable ha sido creada y definida"      
-        env:
-          DAY: Viernes
+        run: echo "DAY=Viernes" >> $GITHUB_ENV
       - name: Printing variable
         run: echo "Hoy es ${{ env.DAY }}"
         

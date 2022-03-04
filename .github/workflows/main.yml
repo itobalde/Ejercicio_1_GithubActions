@@ -1,6 +1,6 @@
 name: Main workflow
 
-on: workflow_dispatch
+on: [push,workflow_dispatch]
 
 jobs:
 
@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Creating a variable
+        run: echo "La variable ha sido creada y definida"      
         env:
           V: Viernes
       - name: Printing variable
